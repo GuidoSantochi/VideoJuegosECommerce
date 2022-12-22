@@ -100,7 +100,7 @@ body {
 /* modal content */
 .modal-container {
   width: 80%;
-  margin:  0 10%;
+  margin: 0 10%;
   max-height: 88vh;
   color: #fff;
   background: #121212;
@@ -114,23 +114,23 @@ body {
   top: 12vh;
   scrollbar-color: none;
 }
-.modal-container::-webkit-scrollbar{
+.modal-container::-webkit-scrollbar {
   display: none;
 }
-.modal-header{
+.modal-header {
   display: flex;
   justify-content: space-around;
   background-color: #0a0909;
   color: #fff;
   width: 100%;
 }
-.modal-header-title{
+.modal-header-title {
   justify-self: start;
 }
-.modal-header-button{
+.modal-header-button {
   cursor: pointer;
 }
-.modal-container > .modal-content{
+.modal-container > .modal-content {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -142,9 +142,27 @@ body {
   height: 120px;
   width: 120px;
 }
-.total-content{
+.total-content {
   font-size: 25px;
   padding: 20px;
   text-align: center;
   padding-top: 20px;
+}
+
+/* eliminate button */
+.delete-product {
+  cursor: pointer;
+}
+
+/* trolley counter */
+.cantidad-carrito{
+  background-color: gray;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 4px;
+  top: 37px;
+  right: 14px;
+  position: absolute;
+  display: none;
 }
