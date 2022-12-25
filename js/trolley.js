@@ -25,19 +25,33 @@ const pintarCarrito = () => {
         <img src="${product.img}">
         <h3>${product.nombre}</h3>
         <p>${product.precio} $</p>
+        <span class="restar"> - </span>
         <p>Cantidad: ${product.cantidad}</p>
+        <span class="sumar"> + </span>
         <p>Total: ${product.cantidad * product.precio}</p>
+        <span class="delete-product"> X </span>
       `;
 
     modalContainer.append(carritoContent);
 
-    let eliminar = document.createElement("span");
+    let restar = carritoContent.querySelector(".restar");
+    restar.addEventListener("click", () => {
+      if (product.cantidad !== 1) {
+        product.cantidad--;
+      }
+      pintarCarrito();
+    });
 
-    eliminar.innerText = "X";
-    eliminar.className = "delete-product";
-    carritoContent.append(eliminar);
+    let sumar = carritoContent.querySelector(".sumar");
+    sumar.addEventListener("click", () => {
+      product.cantidad++;
+      pintarCarrito();
+    });
 
-    eliminar.addEventListener("click", eliminarProducto);
+    let eliminar = carritoContent.querySelector(".delete-product");
+    eliminar.addEventListener("click", () => {
+      eliminarProducto(product.id);
+    });
   });
 
   const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
@@ -49,18 +63,25 @@ const pintarCarrito = () => {
 };
 
 verCarrito.addEventListener("click", pintarCarrito);
-const eliminarProducto = () => {
-  const foundId = carrito.find((element) => element.id);
+
+const eliminarProducto = (id) => {
+  const foundId = carrito.find((element) => element.id === id);
 
   carrito = carrito.filter((carritoId) => {
     return carritoId !== foundId;
   });
 
-  carritoCounter()
+  carritoCounter();
+  saveLocal();
   pintarCarrito();
 };
 
 const carritoCounter = () => {
   cantidadCarrito.style.display = "block";
-  cantidadCarrito.innerText = carrito.length;
+
+  const carritoLength = carrito.length;
+  localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+  cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 };
+
+carritoCounter();

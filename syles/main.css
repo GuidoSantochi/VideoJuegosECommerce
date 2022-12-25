@@ -166,3 +166,11 @@ body {
   position: absolute;
   display: none;
 }
+
+/* botones suma y resta carrito */
+.sumar{
+  cursor: pointer;
+}
+.restar{
+  cursor: pointer;
+}
