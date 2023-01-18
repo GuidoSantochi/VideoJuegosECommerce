@@ -155,7 +155,7 @@ body {
 }
 
 /* trolley counter */
-.cantidad-carrito{
+.cantidad-carrito {
   background-color: gray;
   color: white;
   border-radius: 50%;
@@ -168,9 +168,9 @@ body {
 }
 
 /* botones suma y resta carrito */
-.sumar{
+.sumar {
   cursor: pointer;
 }
-.restar{
+.restar {
   cursor: pointer;
 }

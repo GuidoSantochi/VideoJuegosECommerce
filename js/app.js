@@ -1,7 +1,6 @@
 const shopContent = document.getElementById("shopContent");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
-const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -43,10 +42,15 @@ productos.forEach((product) => {
     }
     carritoCounter();
     saveLocal();
+    Toastify({
+      text: "Añadido al carrito",
+      duration: 2400,
+      position: "right",
+      gravity: "bottom",
+    }).showToast();
   });
 });
 
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
