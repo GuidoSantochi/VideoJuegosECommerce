@@ -1,6 +1,17 @@
 const shopContent = document.getElementById("shopContent");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
+let amount = document.getElementById("usd")
+let result_converter = document.getElementById("result")
+/* Api Exchange */
+let myHeaders = new Headers();
+myHeaders.append("apikey", "3mxTGcV8ZHfIO5IYvoV7LzzxZoAKV8tz");
+
+let requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders
+};
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -54,3 +65,9 @@ productos.forEach((product) => {
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
+usd.addEventListener("keyup", () => {
+  fetch(`https://api.apilayer.com/exchangerates_data/convert?to=USD&from=ARS&amount=${amount.value || 1}`, requestOptions)
+  .then(response => response.json())
+  .then(result => result_converter.innerText=parseFloat(result.result).toFixed(2))
+  .catch(error => console.log('error', error));
+})

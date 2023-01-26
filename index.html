@@ -19,6 +19,21 @@
     <div class="nav-container">
       <nav class="navbar">
         <h1 class="navbar-logo">VideoJuegos</h1>
+        <div class="converter">
+          <form>
+            <input
+              placeholder="Ingrese cantidad en dolar"
+              type="number"
+              name="usd"
+              id="usd"
+              value="1"
+            />
+            <span class="converter-arrow">➡</span>
+            <div class="">
+              <p><span id="result" class="converter-result">0</span> Usd</p>
+            </div>
+          </form>
+        </div>
         <span class="ver-carrito" id="verCarrito"
           >🛒<span id="cantidadCarrito" class="cantidad-carrito"></span
         ></span>
@@ -38,9 +53,10 @@
 
     <!-- Modal container-->
     <div id="modal-container" class="modal-container"></div>
+    <!-- Scripts -->
     <script src="js/products.js"></script>
-    <script src="js/trolley.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/trolley.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"

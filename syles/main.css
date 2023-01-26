@@ -148,7 +148,9 @@ body {
   text-align: center;
   padding-top: 20px;
 }
-
+.comprar{
+  color: white;
+}
 /* eliminate button */
 .delete-product {
   cursor: pointer;
@@ -173,4 +175,19 @@ body {
 }
 .restar {
   cursor: pointer;
+}
+.converter{
+  display: flex;
+  align-items: center;
+}
+.converter input{
+  border-radius: 15px;
+}
+.converter-arrow{
+  color: white;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

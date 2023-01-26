@@ -51,16 +51,31 @@ const pintarCarrito = () => {
     let eliminar = carritoContent.querySelector(".delete-product");
     eliminar.addEventListener("click", () => {
       eliminarProducto(product.id);
-    });
+    });    
   });
 
   const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
   const totalBuying = document.createElement("div");
   totalBuying.className = "total-content";
-  totalBuying.innerHTML = `total a pagar: ${total} $`;
+  totalBuying.innerText = `total a pagar: ${total} $`;
   modalContainer.append(totalBuying);
+  const finalizarCompra = document.createElement("button");
+  finalizarCompra.className = "comprar";
+  finalizarCompra.id = "btn-comprar"
+  finalizarCompra.innerText = "Finalizar Compra";
+  modalContainer.append(finalizarCompra);
+  const btn_comprar = document.getElementById("btn-comprar")
+    btn_comprar.addEventListener("click", () =>{
+      Toastify({
+        text: "Gracias por comprar",
+        duration: 2400,
+        position: "right",
+        gravity: "bottom",
+      }).showToast();
+    })
 };
+
 
 verCarrito.addEventListener("click", pintarCarrito);
 
